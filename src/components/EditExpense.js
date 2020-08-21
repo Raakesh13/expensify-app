@@ -4,23 +4,20 @@ import ExpenseForm from "./ExpenseForm";
 import { editExpense, removeExpense } from "../actions/expenses";
 
 export class EditExpansePage extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div>
         <ExpenseForm
-          expense={props.expense}
+          expense={this.props.expense}
           onSubmit={(expense) => {
-            props.editExpense(props.expense.id, expense);
-            props.history.push("/");
+            this.props.editExpense(this.props.expense.id, expense);
+            this.props.history.push("/");
           }}
         />
         <button
           onClick={() => {
-            props.removeExpense({ id: props.expense.id });
-            props.history.push("/");
+            this.props.removeExpense({ id: this.props.expense.id });
+            this.props.history.push("/");
           }}
         >
           Remove
